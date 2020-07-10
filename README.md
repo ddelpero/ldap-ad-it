@@ -10,8 +10,10 @@ Apache Directory Server.
 
 ## Docker
 
-1. Build image `docker build -t dwimberger/ldap-ad-it .`
-2. Run the image using  
-   `docker run -it --rm -p 10389:10389 dwimberger/ldap-ad-it`
+1. Build image `docker build -t ldap-ad-it:1.0 .`
+
+2. Run image using
+   `docker run -d -p 10389:10389 --name ldap-ad -v <your volume>:/ldap/ldif ldap-ad-it:1.0 `
+
 
 
