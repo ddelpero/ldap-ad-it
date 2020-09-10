@@ -63,36 +63,94 @@ m-must: objectCategory
 ############
 # Domain
 ############
-dn: dc=wimpi,dc=net
-dc: wimpi
+dn: dc=observer,dc=net
+dc: observer
 objectClass: top
 objectClass: domain
 
-dn: ou=users,dc=wimpi,dc=net
+dn: ou=users,dc=observer,dc=net
 objectClass: organizationalUnit
 objectClass: top
 ou: users
 
-dn: uid=test,ou=users,dc=wimpi,dc=net
+dn: uid=admin,ou=users,dc=observer,dc=net
 objectClass: top
 objectClass: person
 objectClass: inetOrgPerson
 objectClass: simulatedMicrosoftSecurityPrincipal
 objectCategory: User
-cn: Test User
-sn: test
-uid: test
-sAMAccountName: test
-userPassword: secret
-memberOf: admin
+cn: admin
+sn: admin
+uid: admin
+sAMAccountName: admin
+userPassword: !Observer1
+memberOf: ob_admin
 
-dn: ou=roles,dc=wimpi,dc=net
+dn: uid=doctor,ou=users,dc=observer,dc=net
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: simulatedMicrosoftSecurityPrincipal
+objectCategory: User
+cn: doctor
+sn: doctor
+uid: doctor
+surname: Observer
+sAMAccountName: doctor
+userPassword: !Observer1
+memberOf: ob_doctor
+
+dn: uid=user,ou=users,dc=observer,dc=net
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: simulatedMicrosoftSecurityPrincipal
+objectCategory: User
+cn: user
+sn: user
+uid: user
+sAMAccountName: user
+userPassword: !Observer1
+memberOf: ob_user
+
+dn: uid=readonly,ou=users,dc=observer,dc=net
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: simulatedMicrosoftSecurityPrincipal
+objectCategory: User
+cn: readonly
+sn: readonly
+uid: readonly
+sAMAccountName: readonly
+userPassword: !Observer1
+memberOf: ob_readonly
+
+dn: ou=roles,dc=observer,dc=net
 objectclass: top
 objectclass: organizationalUnit
 ou: roles
 
-dn: cn=admin,ou=roles,dc=wimpi,dc=net
+dn: cn=ob_admin,ou=roles,dc=observer,dc=net
 objectClass: top
 objectClass: groupOfNames
-cn: admin
-member: uid=test,ou=users,dc=wimpi,dc=net
+cn: ob_admin
+member: uid=admin,ou=users,dc=observer,dc=net
+
+dn: cn=ob_doctor,ou=roles,dc=observer,dc=net
+objectClass: top
+objectClass: groupOfNames
+cn: ob_doctor
+member: uid=doctor,ou=users,dc=observer,dc=net
+
+dn: cn=ob_user,ou=roles,dc=observer,dc=net
+objectClass: top
+objectClass: groupOfNames
+cn: ob_user
+member: uid=user,ou=users,dc=observer,dc=net
+
+dn: cn=ob_readonly,ou=roles,dc=observer,dc=net
+objectClass: top
+objectClass: groupOfNames
+cn: ob_readonly
+member: uid=readonly,ou=users,dc=observer,dc=net
