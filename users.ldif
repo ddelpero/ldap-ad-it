@@ -83,7 +83,7 @@ cn: admin
 sn: admin
 uid: admin
 sAMAccountName: admin
-userPassword: !Observer1
+userPassword: observer_admin
 memberOf: ob_admin
 
 dn: uid=doctor,ou=users,dc=observer,dc=net
@@ -97,7 +97,7 @@ sn: doctor
 uid: doctor
 surname: Observer
 sAMAccountName: doctor
-userPassword: !Observer1
+userPassword: observer_doctor
 memberOf: ob_doctor
 
 dn: uid=user,ou=users,dc=observer,dc=net
@@ -110,7 +110,7 @@ cn: user
 sn: user
 uid: user
 sAMAccountName: user
-userPassword: !Observer1
+userPassword: observer_user
 memberOf: ob_user
 
 dn: uid=readonly,ou=users,dc=observer,dc=net
@@ -123,7 +123,7 @@ cn: readonly
 sn: readonly
 uid: readonly
 sAMAccountName: readonly
-userPassword: !Observer1
+userPassword: observer_readonly
 memberOf: ob_readonly
 
 dn: ou=roles,dc=observer,dc=net
